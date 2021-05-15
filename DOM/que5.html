@@ -1,10 +1,11 @@
+<!-- // work on filter -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Que 5</title>
 
     <style>
         * {
@@ -107,4 +108,33 @@
     <p class="price" data-category="comedy">Rs 200</p>
   </div>
 </body>
+<script>
+    let selectEle=document.querySelector("select");
+    selectEle.addEventListener("change" , function(){
+        let option = selectEle.value;
+        let movies=document.querySelectorAll(".movies");
+        
+        if(option == "none"){
+            for(let i=0;i<movies.length;i++){
+                movies[i].style.display="block";
+            } 
+        }else{
+            
+            for(let i=0;i<movies.length;i++){
+                let p=movies[i].children[1];
+                let category=p.getAttribute("data-category");
+                if(option == category){
+                    movies[i].style.display="block";
+                }else{
+                    movies[i].style.display="none";
+                    
+                }
+    
+                
+            }
+        }
+
+
+    })
+</script>
 </html>
